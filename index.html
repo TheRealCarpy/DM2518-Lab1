@@ -22,14 +22,18 @@
     <script src="mapFunction.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
             async defer></script>
-    <button type="button" id="cbtn" onclick="recenterMap()">
-        Recenter Map
-    </button>
-    <button type="button" id="plusbtn" onclick ="zoomIn()">
-        +
-    </button>
-    <button type="button" id="minusbtn" onclick ="zoomOut()">
-        -
-    </button>
+    <div class="BtnContainer">
+        <div class="Btns">
+            <button type="button" id="cbtn" onclick="recenterMap()">
+                Recenter Map
+            </button>
+            <button type="button" id="plusbtn" onclick ="zoomIn()">
+                +
+            </button>
+            <button type="button" id="minusbtn" onclick ="zoomOut()">
+                -
+            </button>
+        </div>
+    </div>
 </body>
 </html>
