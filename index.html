@@ -19,46 +19,17 @@
 <body>
     <div id="map"></div>
     <div id="controlDib"></div>
-    <script>
-        var map;
-        var marker;
-
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: 59.3498092, lng: 18.0684758},
-                zoom: 15,
-                mapTypeId: 'satellite',
-                disableDefaultUI: true,
-                gestureHandling: 'cooperative'
-            });
-            map.setTilt(45);
-
-            marker = new google.maps.Marker({
-                map: map,
-                draggable: true,
-                animation: google.maps.Animation.DROP,
-                position: {lat: 59.340994, lng: 18.057983}
-            });
-            marker.addListener('click', toggleBounce);
-
-            marker = new google.maps.Marker({
-                map: map,
-                draggable: false,
-                animation: google.maps.Animation.DROP,
-                position: {lat: 59.3498092, lng: 18.0684758}
-            });
-        }
-
-        function toggleBounce(){
-            if (marker.getAnimations() !== null){
-                marker.setAnimation(null);
-            } else{
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-            }
-        }
-
-    </script>
+    <script src="mapFunction.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
             async defer></script>
+    <button type="button" id="cbtn" onclick="recenterMap()">
+        Recenter Map
+    </button>
+    <button type="button" id="plusbtn" onclick ="zoomIn()">
+        +
+    </button>
+    <button type="button" id="minusbtn" onclick ="zoomOut()">
+        -
+    </button>
 </body>
 </html>
