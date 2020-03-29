@@ -4,12 +4,11 @@ var marker;
 var locations = [
     {lat: 59.324173, lng: 18.070550},
     {lat: 59.347172, lng: 18.060795},
-    {lat: 59.340491, lng: 18.057951},
     {lat: 59.332414, lng: 18.067970},
     {lat: 59.334054, lng: 18.068339},
     {lat: 59.340838, lng: 18.040068},
-
 ]
+
 function initMap() {
     //Create maps and markers with its positions etc.
     map = new google.maps.Map(document.getElementById('map'), {
@@ -21,8 +20,13 @@ function initMap() {
     });
     map.setTilt(45);
 
-    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    //Information about my favorite place
+    var contentString = 'Here is Chatalk, A bubble tea cafe with delicious egg waffles. Although it is a small cafe, it is very cozy atmosphere when there is not too many people';
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
 
+    //Marker that does the animation
     marker = new google.maps.Marker({
         map: map,
         draggable: true,
@@ -31,6 +35,19 @@ function initMap() {
     });
     marker.addListener('click', toggleBounce);
 
+    //Marker that shows my favorite place
+    marker1 = new google.maps.Marker({
+        map: map,
+        animation: google.maps.Animation.DROP,
+        position: {lat: 59.340972, lng: 18.057812},
+        icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"}
+    });
+
+    marker1.addListener('click', function(){infowindow.open(map, marker1)});
+
+    //creating more markers to code the clusterings
+    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     markers = locations.map(function(location, i){
         return new google.maps.Marker({
             position: location,
@@ -50,6 +67,7 @@ function toggleBounce(){
     }
 }
 
+//Function of the buttons
 function recenterMap(){
     //Function to recenter map
     map.setCenter({lat:59.3498092, lng: 18.0684758})
@@ -66,3 +84,8 @@ function zoomOut(){
     zoomLvl -= 1;
     map.setZoom(zoomLvl);
 }
+
+//Splashscreen
+$('.go_to_map').click(function(){
+    $(this).parent('#splashs').fadeout(500);
+});

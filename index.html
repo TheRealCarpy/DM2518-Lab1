@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon"  type="image/png"  href="/images/map-point.png?v1">
     <title>Google map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="UTF-8">
-    <link rel="icon" href="/images/favicon.ico"/>
+
     <style>
+        btn{
+            display: inline;
+        }
         #map {
             height:100%;
         }
@@ -17,7 +21,13 @@
     </style>
 
 </head>
+
 <body>
+    <div id="splashs">
+        <h2>Welcome!</h2>
+        <a href="#" class="go_to_map">Click here to start~</a>
+    </div>
+
     <div id="map"></div>
     <div id="controlDib"></div>
     <script
@@ -25,8 +35,8 @@
     <script src="mapFunction.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
             async defer></script>
-    <div class="BtnContainer">
-        <div class="Btns">
+    <div class="btnContainer">
+        <div class="btn">
             <button type="button" id="cbtn" onclick="recenterMap()">
                 Recenter Map
             </button>

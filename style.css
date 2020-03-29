@@ -1,9 +1,25 @@
-.BtnContainer {
+.btnContainer{
     display: table;
+
 }
 
-.Btns {
+.btn {
+    width: 200px;
+    height: 200px;
+    background: #0088cc;
+    padding: 2%;
     display: table-cell;
     text-align: center;
     vertical-align: bottom;
+}
+
+#splashs {
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    width:100%;
+    background-color:white;
+    text-align: center;
+    vertical-align: top;
 }
