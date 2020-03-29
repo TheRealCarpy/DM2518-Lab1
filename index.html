@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
     <link rel="icon"  type="image/png"  href="/images/map-point.png?v1">
-    <title>Google map</title>
+    <title>DM2518 Lab 1</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="UTF-8">
 
     <style>
-        btn{
-            display: inline;
-        }
+
         #map {
             height:100%;
         }
@@ -23,18 +21,9 @@
 </head>
 
 <body>
-    <div id="splashs">
-        <h2>Welcome!</h2>
-        <a href="#" class="go_to_map">Click here to start~</a>
-    </div>
-
     <div id="map"></div>
     <div id="controlDib"></div>
-    <script
-            src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script src="mapFunction.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
-            async defer></script>
+
     <div class="btnContainer">
         <div class="btn">
             <button type="button" id="cbtn" onclick="recenterMap()">
@@ -48,5 +37,12 @@
             </button>
         </div>
     </div>
+
+    <script
+        src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script src="mapFunction.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+            async defer></script>
+
 </body>
 </html>

@@ -85,7 +85,3 @@ function zoomOut(){
     map.setZoom(zoomLvl);
 }
 
-//Splashscreen
-$('.go_to_map').click(function(){
-    $(this).parent('#splashs').fadeout(500);
-});
