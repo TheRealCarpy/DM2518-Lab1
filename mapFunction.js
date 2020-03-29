@@ -44,7 +44,7 @@ function initMap() {
             url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"}
     });
 
-    marker1.addListener('click', function(){infowindow.open(map, marker1)});
+    marker1.addListener('click', function(){map.setCenter({lat: 59.340972, lng: 18.057812}); infowindow.open(map, marker1)});
 
     //creating more markers to code the clusterings
     var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
