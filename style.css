@@ -1,0 +1,10 @@
+.btnContainer{
+    display: table;
+
+}
+
+.btn{
+    display: table-cell;
+    vertical-align: bottom;
+    text-align: center;
+}
