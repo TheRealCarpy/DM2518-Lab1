@@ -53,7 +53,6 @@ function initMap() {
         animation: google.maps.Animation.DROP,
         position: {lat: 59.3498092, lng: 18.0684758}
     });
-    marker.addListener('click', toggleBounce);
 
     //Marker that shows my favorite place
     marker1 = new google.maps.Marker({
@@ -64,7 +63,7 @@ function initMap() {
             url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"}
     });
 
-    marker1.addListener('click', function(){map.setCenter({lat: 59.340972, lng: 18.057812}); favinfowindow.open(map, marker1)});
+    marker1.addListener('click', function(){map.setCenter({lat: 59.340972, lng: 18.057812}); favinfowindow.open(map, marker1); toggleBounce(marker1)});
 
     //creating more markers to code the clusterings
     var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -79,15 +78,13 @@ function initMap() {
 }
 
 //Bounce animation on the marker
-function toggleBounce(){
-
-    if (marker.getAnimations() !== null){
+function toggleBounce(marker) {
+    if (marker.getAnimation() !== null) {
         marker.setAnimation(null);
-    } else{
+    } else {
         marker.setAnimation(google.maps.Animation.BOUNCE);
     }
 }
-
 //Function of the buttons
 function recenterMap(){
     //Function to recenter map
