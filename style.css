@@ -22,3 +22,14 @@
     vertical-align: bottom;
 }
 
+.starter {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="images/map-point.png"/>
+    <title>DM2518 Lab 1</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <style>
+
+        #map {
+            height:97%;
+        }
+        html, body{
+            height:100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="map"></div>
+    <div id="controlDib"></div>
+
+    <div class="btnContainer">
+        <div class="btn">
+            <button type="button" id="cbtn" onclick="recenterMap()">
+                Recenter Map
+            </button>
+            <button type="button" id="plusbtn" onclick ="zoomIn()">
+                +
+            </button>
+            <button type="button" id="minusbtn" onclick ="zoomOut()">
+                -
+            </button>
+        </div>
+    </div>
+
+    <script
+        src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script src="mapFunction.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+            async defer></script>
+
+</body>
+</html>

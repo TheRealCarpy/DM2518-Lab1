@@ -20,9 +20,29 @@ function initMap() {
     });
     map.setTilt(45);
 
+    var locateinfowindow = new google.maps.InfoWindow;
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            locateinfowindow.setPosition(pos);
+            locateinfowindow.setContent('Location found!');
+            locateinfowindow.open(map);
+            map.setCenter(pos);
+        }, function(){
+            handleLocationError(true, locateinfowindow, map.getCenter());
+        });
+    } else {
+        handleLocationError(false, locateinfowindow, map.getCenter());
+    }
+
     //Information about my favorite place
     var contentString = 'Here is Chatalk, A bubble tea cafe with delicious egg waffles. Although it is a small cafe, it is very cozy atmosphere when there is not too many people';
-    var infowindow = new google.maps.InfoWindow({
+    var favinfowindow = new google.maps.InfoWindow({
         content: contentString
     });
 
@@ -44,7 +64,7 @@ function initMap() {
             url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"}
     });
 
-    marker1.addListener('click', function(){map.setCenter({lat: 59.340972, lng: 18.057812}); infowindow.open(map, marker1)});
+    marker1.addListener('click', function(){map.setCenter({lat: 59.340972, lng: 18.057812}); favinfowindow.open(map, marker1)});
 
     //creating more markers to code the clusterings
     var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -58,8 +78,9 @@ function initMap() {
     var markerClusters = new MarkerClusterer(map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
 }
 
+//Bounce animation on the marker
 function toggleBounce(){
-    //Bounce animation on the marker
+
     if (marker.getAnimations() !== null){
         marker.setAnimation(null);
     } else{
@@ -87,5 +108,11 @@ function zoomOut(){
 
 $('.enter_link').click(function () {
     $(this).parent('#splashscreen').fadeOut(500);
-    window.location.href = "index.html";
+    window.location.href = "mapPage.html";
 });
+
+function handleLocationError(browserHasGeolocation, infowindow, pos){
+    infowindow.setPosition(pos);
+    infowindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed' : 'Error: Your browser doesn\'t suppoer Geolocation');
+    infowindow.open(map);
+}
